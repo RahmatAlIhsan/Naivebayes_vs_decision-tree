@@ -118,7 +118,94 @@ nb = {
     "> **Kesimpulan Bagian 1:** Dataset berhasil dimuat. Terlihat ada 1.351 sampel dengan 4 kolom. Distribusi status menunjukkan ketidakseimbangan kelas (class imbalance) dengan mayoritas Normal.\n",
     "\n",
     "---\n",
-    "*Bersambung ke Bagian 2: Data Preprocessing...*"
+    "# BAGIAN 2: DATA PREPROCESSING\n",
+    "---"
+  ]},
+  {"cell_type": "code", "execution_count": None, "metadata": {"tags": []}, "outputs": [], "source": [
+    "# ============================================================\n",
+    "# BAGIAN 2: DATA PREPROCESSING\n",
+    "# Tujuan: Membersihkan dataset dari inkonsistensi\n",
+    "# ============================================================\n",
+    "\n",
+    "# Buat salinan untuk preprocessing\n",
+    "df = df_raw.copy()\n",
+    "\n",
+    "# 2.1 Standardisasi Nama Kolom (lowercase, tanpa spasi)\n",
+    "df.columns = df.columns.str.strip().str.lower().str.replace(' ', '_')\n",
+    "print(\"Nama kolom setelah standardisasi:\")\n",
+    "print(df.columns.tolist())"
+  ]},
+  {"cell_type": "code", "execution_count": None, "metadata": {"tags": []}, "outputs": [], "source": [
+    "# 2.2 Cek dan Fix Inkonsistensi String\n",
+    "print(\"=== Nilai Unik di Kolom 'status' SEBELUM pembersihan ===\")\n",
+    "print(df['status'].unique())\n",
+    "print(df['status'].value_counts())\n",
+    "\n",
+    "# Fix: hapus spasi berlebih, standardisasi kapitalisasi\n",
+    "df['status'] = df['status'].str.strip().str.title()\n",
+    "\n",
+    "print(\"\\n=== Nilai Unik di Kolom 'status' SETELAH pembersihan ===\")\n",
+    "print(df['status'].unique())\n",
+    "print(df['status'].value_counts())"
+  ]},
+  {"cell_type": "code", "execution_count": None, "metadata": {"tags": []}, "outputs": [], "source": [
+    "# 2.3 Standardisasi Kolom 'jk' (Jenis Kelamin)\n",
+    "print(\"=== Nilai Unik di Kolom 'jk' SEBELUM ===\")\n",
+    "print(df['jk'].unique())\n",
+    "print(df['jk'].value_counts())\n",
+    "\n",
+    "# Standardisasi: L -> Laki-Laki, P -> Perempuan\n",
+    "jk_mapping = {'L': 'Laki-Laki', 'P': 'Perempuan'}\n",
+    "df['jk'] = df['jk'].str.strip().map(jk_mapping)\n",
+    "\n",
+    "print(\"\\n=== Nilai Unik di Kolom 'jk' SETELAH ===\")\n",
+    "print(df['jk'].unique())\n",
+    "print(df['jk'].value_counts())"
+  ]},
+  {"cell_type": "code", "execution_count": None, "metadata": {"tags": []}, "outputs": [], "source": [
+    "# 2.4 Deteksi Duplikasi Data\n",
+    "print(\"=== Deteksi Duplikasi Data ===\")\n",
+    "duplicates = df.duplicated().sum()\n",
+    "print(f\"Jumlah data duplikat: {duplicates}\")\n",
+    "\n",
+    "if duplicates > 0:\n",
+    "    print(\"\\nBaris duplikat:\")\n",
+    "    display(df[df.duplicated(keep=False)].sort_values(by=list(df.columns)).head(10))\n",
+    "    # Hapus duplikat\n",
+    "    df = df.drop_duplicates().reset_index(drop=True)\n",
+    "    print(f\"\\n{duplicates} duplikat telah dihapus.\")\n",
+    "    print(f\"Shape setelah hapus duplikat: {df.shape}\")\n",
+    "else:\n",
+    "    print(\"Tidak ada data duplikat.\")"
+  ]},
+  {"cell_type": "code", "execution_count": None, "metadata": {"tags": []}, "outputs": [], "source": [
+    "# 2.5 Cek dan Konversi Tipe Data\n",
+    "print(\"=== Tipe Data Sebelum Konversi ===\")\n",
+    "print(df.dtypes)\n",
+    "\n",
+    "# Konversi umur_bulan dan tinggi ke numerik (jika ada yang object)\n",
+    "df['umur_bulan'] = pd.to_numeric(df['umur_bulan'], errors='coerce')\n",
+    "df['tinggi'] = pd.to_numeric(df['tinggi'], errors='coerce')\n",
+    "\n",
+    "print(\"\\n=== Tipe Data Setelah Konversi ===\")\n",
+    "print(df.dtypes)\n",
+    "\n",
+    "print(\"\\n=== Ringkasan Setelah Preprocessing ===\")\n",
+    "display(df.head())\n",
+    "print(f\"Shape: {df.shape}\")"
+  ]},
+  {"cell_type": "code", "execution_count": None, "metadata": {"tags": []}, "outputs": [], "source": [
+    "# 2.6 Export Intermediate CSV - Hasil Preprocessing\n",
+    "df.to_csv('../data/processed/stunting_01_preprocessed.csv', index=False)\n",
+    "print(\"Data preprocessing selesai!\")\n",
+    "print(f\"Intermediate CSV tersimpan: data/processed/stunting_01_preprocessed.csv\")\n",
+    "print(f\"Shape: {df.shape[0]} baris, {df.shape[1]} kolom\")"
+  ]},
+  {"cell_type": "markdown", "metadata": {"tags": []}, "source": [
+    "> **Kesimpulan Bagian 2:** Data preprocessing selesai. Inkonsistensi string telah diperbaiki (spasi pada \"Stunted\", standardisasi kolom 'jk'). Tipe data sudah sesuai.\n",
+    "\n",
+    "---\n",
+    "*Bersambung ke Bagian 3: Handling Missing Values...*"
   ]}
  ],
  "metadata": {
