@@ -1,0 +1,47 @@
+Feature,MI_Score
+Physical_Activity_Low,0.008234239524224973
+Family_History_Yes,0.008178486717493882
+Treatment_Type_Surgery,0.006611923459748148
+Obesity_BMI_Obese,0.006108339397608686
+Diabetes_Yes,0.0059301071582875675
+Obesity_BMI_Overweight,0.004507707914277459
+Cancer_Stage_Metastatic,0.004483500918036398
+Diet_Risk_Moderate,0.004264245662570776
+Economic_Classification_Developing,0.003925597576807771
+Cancer_Stage_Regional,0.003826245595463851
+Healthcare_Access_Moderate,0.0037904532480337316
+Gender_M,0.003425846034012192
+Country_France,0.003399129563525616
+Country_Italy,0.00282885133431221
+Country_Brazil,0.002139012754864389
+Treatment_Type_Radiotherapy,0.0017914287822491382
+Country_China,0.0017605362527635116
+Country_South Africa,0.0017363025570560353
+Country_USA,0.0017080999851137868
+Country_South Korea,0.0011973204101025647
+Treatment_Type_Combination,0.001131480837103238
+Urban_or_Rural_Urban,0.0009725343452604562
+Country_Germany,0.0008915887331577554
+Incidence_Rate_per_100K,0.0007139477625250912
+Diet_Risk_Low,0.0004570312181386704
+Screening_History_Regular,0.00027126365678364905
+Screening_History_Never,0.0
+Genetic_Mutation_Yes,0.0
+Inflammatory_Bowel_Disease_Yes,0.0
+Healthcare_Access_Low,0.0
+Early_Detection_Yes,0.0
+Age,0.0
+Physical_Activity_Moderate,0.0
+Alcohol_Consumption_Yes,0.0
+Smoking_History_Yes,0.0
+Tumor_Size_mm,0.0
+Country_UK,0.0
+Country_Pakistan,0.0
+Country_Nigeria,0.0
+Country_New Zealand,0.0
+Country_Japan,0.0
+Country_India,0.0
+Country_Canada,0.0
+Mortality_Rate_per_100K,0.0
+Healthcare_Costs,0.0
+Insurance_Status_Uninsured,0.0
