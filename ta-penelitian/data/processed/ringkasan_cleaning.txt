@@ -1,0 +1,25 @@
+
+Dataset: stunting.csv
+Total Sampel Awal: 1351
+Total Sampel Akhir: 1329
+Jumlah Kolom: 4
+
+TAHAPAN YANG TELAH DILAKUKAN:
+1. Data Loading & Eksplorasi Awal
+2. Data Preprocessing:
+   - Standardisasi nama kolom
+   - Fix inkonsistensi nilai Status (spasi, kapitalisasi)
+   - Standardisasi kolom JK (L/P -> Laki-Laki/Perempuan)
+   - Deteksi dan hapus duplikasi data (22 duplikat dihapus)
+   - Konversi tipe data numerik
+
+3. Handling Missing Values:
+   - Tidak ditemukan missing values dalam dataset
+   - Handler tetap disiapkan untuk antisipasi data baru
+
+4. Outlier Detection & Handling:
+   - Metode IQR: 1 outlier di tinggi
+   - Metode Z-Score: 2 outlier di tinggi
+   - Penanganan: Capping/Winsorization
+
+5. Export Dataset Bersih ke CSV
