@@ -1,4 +1,3 @@
-
 Dataset: stunting.csv
 Total Sampel Awal: 1351
 Total Sampel Akhir: 1329
@@ -18,8 +17,8 @@ TAHAPAN YANG TELAH DILAKUKAN:
    - Handler tetap disiapkan untuk antisipasi data baru
 
 4. Outlier Detection & Handling:
-   - Metode IQR: 1 outlier di tinggi
-   - Metode Z-Score: 2 outlier di tinggi
-   - Penanganan: Capping/Winsorization
+   - Metode IQR: umur_bulan: 0 outlier, tinggi: 1 outlier
+   - Metode Z-Score: umur_bulan: 0 outlier, tinggi: 2 outlier
+   - Penanganan: Capping/Winsorization (mengganti outlier dengan batas IQR)
 
 5. Export Dataset Bersih ke CSV
