@@ -1,0 +1,4 @@
+Model,Kelas,Precision,Recall,F1-Score,Support
+Decision Tree,Normal,0.9712,0.9633,0.9672,245
+Decision Tree,Stunted,0.5238,0.6111,0.5641,18
+Decision Tree,Severely Stunted,1.0,0.6667,0.8,3
