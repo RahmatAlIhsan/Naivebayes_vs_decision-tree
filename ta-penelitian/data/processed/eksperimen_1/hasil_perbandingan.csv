@@ -1,0 +1,3 @@
+Model,SMOTE,Hyperparameter Tuning,Accuracy,Precision,Recall,F1-Score
+Naive Bayes,Tidak,Tidak,0.9211,0.8483,0.9211,0.8832
+Decision Tree,Tidak,Tidak,0.9286,0.9287,0.9286,0.9284
